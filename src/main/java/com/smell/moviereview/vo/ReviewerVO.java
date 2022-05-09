@@ -1,14 +1,14 @@
 package com.smell.moviereview.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter @Setter
 public class ReviewerVO {
 
-    @JsonProperty
+    @JsonProperty(value="id")
     private String id;
 
-    @JsonProperty
+    @JsonProperty(value="name")
     private String name;
 }

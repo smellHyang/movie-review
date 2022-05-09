@@ -7,5 +7,9 @@ import java.util.List;
 
 @Mapper
 public interface ReviewerDAO {
-    public List<ReviewerVO> selectAllReviewers();
+    List<ReviewerVO> selectAllReviewers();
+    ReviewerVO selectById(String id);
+    void insert(ReviewerVO reviewer);
+    void update(ReviewerVO reviewer);
+    void delete(String id);
 }
