@@ -4,3 +4,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: smell
     password: 1234
+
+mybatis:
+  # mapper 경로 지정
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.smell.moviereview.vo
+  configuration:
+    map-underscore-to-camel-case: true
