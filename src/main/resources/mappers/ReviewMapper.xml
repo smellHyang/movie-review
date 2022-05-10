@@ -9,9 +9,9 @@
         FROM	REVIEW
     </select>
 
-    <select id="selectOneReview" parameterType="String" resultType="ReviewVO">
+    <select id="selectOneReview" parameterType="Integer" resultType="ReviewVO">
         SELECT *
-        FROM REVIEWER
+        FROM REVIEW
         WHERE id = #{id}
     </select>
 
@@ -22,11 +22,15 @@
 
     <update id="modify" parameterType="ReviewVO">
         UPDATE REVIEW
-        SET name = #{name}
+        SET rating = #{rating},
+            title = #{title},
+            director = #{director},
+            actor = #{actor},
+            contents = #{contents}
         WHERE id = #{id}
     </update>
 
-    <delete id="delete" parameterType="Integer">
+    <delete id="remove" parameterType="int">
         DELETE
         FROM REVIEW
         WHERE id = #{id}

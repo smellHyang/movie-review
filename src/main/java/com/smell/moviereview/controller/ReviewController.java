@@ -21,6 +21,18 @@ public class ReviewController {
         return reviewService.getReviewList();
     }
 
+    @PutMapping("/{id}")
+    public List<ReviewVO> modifyReview(@PathVariable int id, @RequestBody ReviewVO review){
+        reviewService.modifyReview(id, review);
+        return reviewService.getReviewList();
+    }
+
+    @DeleteMapping("/{id}")
+    public List<ReviewVO> removeReview(@PathVariable int id){
+        reviewService.removeReview(id);
+        return reviewService.getReviewList();
+    }
+
     //조회
     @GetMapping
     public List<ReviewVO> selectListReviews(){
