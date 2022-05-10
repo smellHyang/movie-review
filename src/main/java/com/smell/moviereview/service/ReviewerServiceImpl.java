@@ -36,4 +36,13 @@ public class ReviewerServiceImpl implements ReviewerService {
         }
     }
 
+    @Override
+    public void deleteReviewer(String id){
+        if(reviewerDao.selectById(id) != null){
+            reviewerDao.delete(id);
+        }else{
+            throw new IllegalStateException("평자가가 존재하지 않습니다.");
+        }
+    }
+
 }
