@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smell.moviereview.dao.ReviewDAO">
+    <select id="selectAllReviews" resultType="ReviewVO">
+        SELECT 	*
+        FROM	REVIEW
+    </select>
+
+    <select id="selectOneReview" parameterType="String" resultType="ReviewVO">
+        SELECT *
+        FROM REVIEWER
+        WHERE id = #{id}
+    </select>
+
+    <insert id="write" parameterType="ReviewVO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO REVIEW(rating, date, title, director, actor, contents, reviewer_id)
+        VALUES  (#{rating}, CURRENT_DATE, #{title}, #{director}, #{actor}, #{contents}, #{reviewer_id})
+    </insert>
+
+    <update id="modify" parameterType="ReviewVO">
+        UPDATE REVIEW
+        SET name = #{name}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE
+        FROM REVIEW
+        WHERE id = #{id}
+    </delete>
+</mapper>
